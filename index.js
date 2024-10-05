@@ -4,8 +4,9 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
     .then(data => {
         document.body.style.backgroundImage = `url(${data.urls.regular})`
 		document.getElementById("author").textContent = `By: ${data.user.name}`
-        document.getElementById("imageLocation").textContent = `${data.user.location}`
-        console.log(data.user)
+        if (data.user.location) {
+            document.getElementById("imageLocation").textContent = `${data.user.location}`
+        }
     })
     .catch(err => {
         document.body.style.backgroundImage = 'url(https://images.unsplash.com/photo-1602089108168-41dd3471da06?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxNDI0NzB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3Mjc3OTcxODV8&ixlib=rb-4.0.3&q=80&w=1080)';
@@ -64,4 +65,26 @@ navigator.geolocation.getCurrentPosition(position => {
             `;
         })
         .catch(err => console.error(err));
+});
+
+//download background image
+const downloadImageBtn = document.getElementById("imageDownload");
+
+downloadImageBtn.addEventListener("click", () => {
+    const currentImg = document.getElementsByTagName("body")[0].style.backgroundImage;
+    const imgUrl = currentImg.slice(5, -2);
+
+    const imageName = document.getElementById("author").textContent.slice(4).replaceAll(' ', '-');
+
+    chrome.downloads.download({
+        url: imgUrl,
+        filename: `rat-pic-by-${imageName}.jpg`,
+        conflictAction: "uniquify",
+    })
+    .then((downloadId) => {
+        console.log(`Download initiated with Id: ${downloadId}`);
+    })
+    .catch((error) => {
+        console.error("download failed:", error);
+    });
 });

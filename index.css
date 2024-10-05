@@ -88,7 +88,22 @@ h1.time {
 }
 
 /***BOTTOM***/
+.bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
 .bottom-row p {
     font-size: 1.1rem;
     margin: 0;
+}
+
+.download-image {
+    font-size: 2rem;
+}
+
+.download-image:hover {
+    cursor: pointer;
+    opacity: 0.5;
 }
