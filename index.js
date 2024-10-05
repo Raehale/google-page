@@ -35,6 +35,14 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
     })
     .catch(err => console.error(err));
 
+//gets users current 
+function getCurrentTime() {
+    const currentTimeHM = new Date().toLocaleTimeString(("en-us"), {timeStyle: "short"});
+    document.getElementById("time").textContent = currentTimeHM;
+}
+
+setInterval(getCurrentTime, 1000);
+
 //gets users current weather using their position
 navigator.geolocation.getCurrentPosition(position => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=104bdb29c7eb291568aef67ab2067fe3`)
