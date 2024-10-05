@@ -31,8 +31,13 @@ main {
     justify-content: space-between;
 }
 
-.time {
+h1.time {
     text-align: center;
+    font-size: 5rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /***CRYPTO***/
@@ -73,10 +78,17 @@ main {
     text-align: right;
     margin: 0;
     margin-top: -10px;
+    font-size: 1.25rem;
 }
 
 .weather-temp {
     margin: 0;
     font-size: 1.7rem;
     margin-left: -.5rem;
+}
+
+/***BOTTOM***/
+.bottom-row p {
+    font-size: 1.1rem;
+    margin: 0;
 }
