@@ -1,5 +1,8 @@
-import {photoData} from "./unsplashPhotos.js";
+import { photoData } from "./unsplashPhotos.js";
 console.log(photoData)
+// import { Octokit } from "https://esm.sh/@octokit/core";
+// window.Octokit = new Octokit({userAgent: 'Rae'});
+
 //gets dogecoin stats
 fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
     .then(res => {
@@ -114,7 +117,6 @@ function topThreeRepos(reposArr) {
 
 function displayRecentRepos(topRepos) {
     for (const repo in topRepos) {
-        console.log(topRepos[repo])
         document.getElementById("githubRepos").innerHTML += `
                 <a href="https://github.com/Raehale/${topRepos[repo].name}">
                     <div class="repo">
@@ -134,3 +136,29 @@ function displayRecentRepos(topRepos) {
 }
 
 //makes a link to create a new repository on github
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("newRepoBtnIcon").addEventListener("click", (event) => {
+        console.log(document.getElementById("newRepoBtn"))
+        const newRepoName = document.getElementById("newRepoInput").value;
+        console.log('newRepoName')
+    });
+});
+
+// function displayCreateNewGithubRepo(data) {
+//     const newRepoEl = document.getElementById("newRepo");
+//     const newRepoName = document.getElementById("newRepoInput").value
+//     console.log(newRepoName)
+// }
+
+// const octokit = new Octokit({
+// });
+
+// try {
+//     const result = await octokit.request("POST /orgs/Raehale/repos", {
+//                         org: "Raehale",
+//                         name: "octocat",
+//                     })
+//     displayCreateNewGithubRepo(result);
+// } catch (error) {
+//     console.log(error)
+// }
