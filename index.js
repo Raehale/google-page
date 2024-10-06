@@ -1,3 +1,8 @@
+// import { Octokit } from "https://esm.sh/@octokit/core";
+
+// window.Octokit = new Octokit({userAgent: 'Rae'});
+
+
 //gets random photos related to rats
 fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=rats")
     .then(res => res.json())
@@ -127,7 +132,6 @@ function topThreeRepos(reposArr) {
 
 function displayRecentRepos(topRepos) {
     for (const repo in topRepos) {
-        console.log(topRepos[repo])
         document.getElementById("githubRepos").innerHTML += `
                 <a href="https://github.com/Raehale/${topRepos[repo].name}">
                     <div class="repo">
@@ -147,3 +151,30 @@ function displayRecentRepos(topRepos) {
 }
 
 //makes a link to create a new repository on github
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("newRepoBtnIcon").addEventListener("click", (event) => {
+        console.log(document.getElementById("newRepoBtn"))
+        const newRepoName = document.getElementById("newRepoInput").value;
+        console.log('newRepoName')
+    });
+});
+
+// function displayCreateNewGithubRepo(data) {
+//     const newRepoEl = document.getElementById("newRepo");
+//     const newRepoName = document.getElementById("newRepoInput").value
+//     console.log(newRepoName)
+// }
+
+// const octokit = new Octokit({
+// });
+
+// try {
+//     const result = await octokit.request("POST /orgs/Raehale/repos", {
+//                         org: "Raehale",
+//                         name: "octocat",
+//                     })
+                    
+//     displayCreateNewGithubRepo(result);
+// } catch (error) {
+//     console.log(error)
+// }
