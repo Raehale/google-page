@@ -88,3 +88,56 @@ downloadImageBtn.addEventListener("click", () => {
         console.error("download failed:", error);
     });
 });
+
+//get github repos
+let topRepoTimes = {
+    one: new Date('2020-09-05T01:55:56Z'),
+    two: new Date('2020-09-05T01:55:56Z'),
+    three: new Date('2020-09-05T01:55:56Z'),
+}
+
+fetch("https://api.github.com/users/raehale/repos")
+    .then(res => res.json())
+    .then(data => {
+        displayGithubRepos(data);
+    });
+
+function displayGithubRepos(reposArr) {
+    getOrderedArr(reposArr)
+}
+
+function getOrderedArr(reposArr) {
+        let reposSortedByUpdate = reposArr.sort(sortDates);
+    
+        function sortDates(a, b) {
+            return (a.updated_at > b.updated_at) ? -1 : 1;
+        }
+
+        topThreeRepos(reposSortedByUpdate);
+}
+
+let topRepos = {}
+function topThreeRepos(reposArr) {
+    topRepos.one = reposArr[0];
+    topRepos.two = reposArr[1];
+    topRepos.three = reposArr[2];
+
+    displayRecentRepos(topRepos);
+}
+
+function displayRecentRepos(topRepos) {
+    console.log(topRepos)
+    document.getElementById("githubRepos").innerHTML += `
+        <a href="${topRepos.one.git_url}" class="repo">
+            <h3>${topRepos.one.name}</h3>
+            <div class="repo-details">
+                <p class="language ${topRepos.one.language}">
+                    ${topRepos.one.language}
+                </p>
+                <p class="last-contribute">
+                    ${new Date(topRepos.one.updated_at)}
+                </p>
+            </div>
+        </div>
+    `
+}
