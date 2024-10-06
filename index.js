@@ -126,18 +126,19 @@ function topThreeRepos(reposArr) {
 }
 
 function displayRecentRepos(topRepos) {
-    console.log(topRepos)
-    document.getElementById("githubRepos").innerHTML += `
-        <a href="${topRepos.one.git_url}" class="repo">
-            <h3>${topRepos.one.name}</h3>
-            <div class="repo-details">
-                <p class="language ${topRepos.one.language}">
-                    ${topRepos.one.language}
-                </p>
-                <p class="last-contribute">
-                    ${new Date(topRepos.one.updated_at)}
-                </p>
-            </div>
-        </div>
-    `
+    for (const repo in topRepos) {
+        document.getElementById("githubRepos").innerHTML += `
+                <a href="${topRepos[repo].git_url}" class="repo">
+                    <h3>${topRepos[repo].name}</h3>
+                    <div class="repo-details">
+                        <p class="language ${topRepos[repo].language}">
+                            ${topRepos[repo].language}
+                        </p>
+                        <p class="last-contribute">
+                            ${new Date(topRepos[repo].updated_at)}
+                        </p>
+                    </div>
+                </div>
+            `;
+    };
 }
