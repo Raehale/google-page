@@ -26,6 +26,11 @@ main {
     justify-content: space-between;
 }
 
+a {
+    text-shadow: none;
+    text-decoration: none;
+}
+
 .top {
     display: flex;
     justify-content: space-between;
@@ -106,4 +111,53 @@ h1.time {
 .download-image:hover {
     cursor: pointer;
     opacity: 0.5;
+}
+
+/***REPOS***/
+.github-repos {
+    display: grid;
+    gap: 1rem;
+}
+
+/**REPO**/
+.repo {
+    border: 1px solid #9198a1;
+    border-radius: 4px;
+    background-color: #151b23;
+
+    padding: 1rem;
+
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+
+    min-width: 250px;
+}
+
+a .repo {
+    color: #9198a1;
+}
+
+.repo h3 {
+    margin: 0;
+    color: #4493f8;
+    font-size: 0.875rem;
+}
+
+.repo-details {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 0.75rem;
+}
+.repo-details p {
+    margin-bottom: 0;
+}
+
+/*LANGUAGES*/
+.javascript-icon {
+    /* content: f192 */
+    color: #f1e05a
+}
+
+.html-icon {
+    color: #e34c26;
 }

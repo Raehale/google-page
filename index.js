@@ -127,18 +127,23 @@ function topThreeRepos(reposArr) {
 
 function displayRecentRepos(topRepos) {
     for (const repo in topRepos) {
+        console.log(topRepos[repo])
         document.getElementById("githubRepos").innerHTML += `
-                <a href="${topRepos[repo].git_url}" class="repo">
-                    <h3>${topRepos[repo].name}</h3>
-                    <div class="repo-details">
-                        <p class="language ${topRepos[repo].language}">
-                            ${topRepos[repo].language}
-                        </p>
-                        <p class="last-contribute">
-                            ${new Date(topRepos[repo].updated_at)}
-                        </p>
+                <a href="https://github.com/Raehale/${topRepos[repo].name}">
+                    <div class="repo">
+                        <h3>${topRepos[repo].name}</h3>
+                        <div class="repo-details">
+                            <p class="language">
+                                <i class="fa-solid fa-circle-dot ${topRepos[repo].language}-icon"></i> ${topRepos[repo].language}
+                            </p>
+                            <p class="last-contribute">
+                                ${new Date(topRepos[repo].updated_at).toString().substring(0, 21)}
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </a>
             `;
     };
 }
+
+//makes a link to create a new repository on github
