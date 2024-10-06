@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="index.css">
         <title>Personal Dashboard</title>
         <!-- font awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
     </head>
     <body>
         <main>
@@ -13,6 +13,19 @@
                     <div class="crypto-top" id="crypto-top"></div>
                 </div> -->
                 <div class="github-repos" id="githubRepos">
+                    <div id="newRepo">
+                        <div class="repo">
+                            <h3>
+                                <form class="new-repo-form" id="newRepoForm">
+                                    <input id="newRepoInput" placeholder="new repo name" class="new-repo-input" />
+                                    <button id="newRepoBtn" class="new-repo-btn" type="button">
+                                        <i class="fa-solid fa-book-bookmark" id="newRepoBtnIcon"></i>
+                                    </button>
+                                </form>
+                            </h3>
+                        </div>
+                    </div>
+                    <!--repos added in js-->
                 </div>
                 <div id="weather" class="weather"></div>
             </div>
@@ -27,6 +40,6 @@
                 </div>
             </div>
         </main>
-        <script src="index.js"></script>
+        <script type="module" src="index.js"></script>
     </body>
 </html>
