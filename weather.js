@@ -10,7 +10,6 @@ export function getWeather() {
                 return res.json();
             })
             .then(data => {
-                console.log(data)
                 const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
                 document.getElementById("weather").innerHTML = `
                     <img src=${iconUrl} alt="Weather Icon" />

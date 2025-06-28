@@ -1,4 +1,3 @@
-
 //gets dogecoin stats
 fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
     .then(res => {
