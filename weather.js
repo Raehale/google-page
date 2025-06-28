@@ -18,7 +18,7 @@ export function getWeather() {
                         Feels Like: ${Math.round(data.main.feels_like)}º<br />
                         Min: ${Math.round(data.main.temp_max)}º<br />
                         Max: ${Math.round(data.main.temp_min)}º<br />
-                    </div>
+                    </p>
                     <p class="weather-city">${data.name}</p>
                 `;
             })
