@@ -78,11 +78,17 @@ h1.time {
     width: 4.5rem;
 }
 
-.weather-city {
+.weather-text {
     width: 100%;
     text-align: right;
     margin: 0;
     margin-top: -10px;
+}
+
+.weather-city {
+    width: 100%;
+    text-align: right;
+    margin: 0;
     font-size: 1.25rem;
 }
 
