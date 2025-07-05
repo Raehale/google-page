@@ -1,5 +1,6 @@
 import { getBackground, downloadBgImg } from "./unsplashPhotos.js";
 import { getWeather } from "./weather.js";
+import { getNews } from "./news.js";
 import { getThreeRecentRepos, createNewRepo } from "./githubInfo.js"
 
 //gets the rat themed background from unsplashPhotos.js
@@ -10,6 +11,9 @@ downloadBgImg();
 
 //gets the current weather based off the users location
 getWeather();
+
+//gets the most recent rat-themed news
+getNews();
 
 //gets users current time
 function getCurrentTime() {
