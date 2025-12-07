@@ -1,3 +1,5 @@
+import { throwToastError } from './notifications.js';
+
 //get github repos
 export function getThreeRecentRepos() {
     fetch("https://api.github.com/users/raehale/repos")
@@ -56,9 +58,18 @@ export function getThreeRecentRepos() {
 export function createNewRepo() {
     document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("newRepoBtnIcon").addEventListener("click", (event) => {
-            console.log(document.getElementById("newRepoBtn"))
-            const newRepoName = document.getElementById("newRepoInput").value;
-            console.log('newRepoName')
+            // console.log(document.getElementById("newRepoBtn"))
+            const newRepoName = document.getElementById("newRepoNameInput").value;
+            const newRepoDesc = document.getElementById("newRepoDescInput").value;
+            // console.log(newRepoName)
+            // repository-name-input
+            if (newRepoName.includes(' ')) {
+                const newNameNoSpaces = newRepoName.replaceAll(' ', '-');
+                throwToastError(`Your repo name cannot include a space. Try ${newNameNoSpaces}`);
+            }
+            const customRedirectUrl = `https://github.com/new?name=blah&description=blah%20blah`
+            
+            window.open("someurl", "_blank");
         });
     });
     
